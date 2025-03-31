@@ -1,0 +1,153 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgba(255, 255, 255, 10);
+  display: flex;
+  background-image: url(https://www.shutterstock.com/image-photo/dark-drone-flight-over-city-600nw-1372546655.jpg);
+  justify-content: center;
+  background-size: 100%;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  backdrop-filter: blur(20px);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120vh;
+  
+  
+}
+
+.login-box {
+background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.title {
+  color: #007bff;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-wrapper ion-icon {
+    position: absolute;
+    left: 10px;
+    font-size: 20px;
+    color: rgb(65, 70, 136);
+    --ionicon-stroke-width: 50px;
+  }
+  
+  .input-wrapper input {
+    padding-left: 40px;
+    text-align: center; 
+  }
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+    position: relative;
+    display: flex;
+    align-items: left;
+}
+
+.input-group input {
+  width: 92%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+  
+  .select-wrapper {
+    position: relative;
+    width: 98%;
+  }
+  
+  .select-wrapper ion-icon {
+    position: absolute;
+    left: 10px;
+    margin-top: 2%;
+    font-size: 20px;
+    color: rgb(65, 70, 136);
+    --ionicon-stroke-width: 50px;
+  }
+  
+  .select-wrapper select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+ 
+  
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.forgot-password {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-btn {
+  width: 100%;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-btn:hover {
+  background: #0056b3;
+}
+
+.separator {
+  margin: 15px 0;
+  font-size: 14px;
+  color: #777;
+}
+
+.extra-links {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.extra-links a {
+  color: #007bff;
+  cursor:pointer;
+}
+
+.extra-links a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
