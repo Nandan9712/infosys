@@ -12,7 +12,7 @@ const Register = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    role: "Student",
+    role: "",
   });
 
   const [message, setMessage] = useState(""); // For success/error messages
@@ -97,16 +97,22 @@ const Register = () => {
           </div>
 
           <div className="input-group">
-            <label>Role</label>
-            <div className="select-wrapper">
-              <IonIcon icon={personOutline} />
-              <select name="role" value={formData.role} onChange={handleChange}>
-                <option value="Student">Student</option>
-                <option value="Teacher">Teacher</option>
-                <option value="Examiner">Examiner</option>
-              </select>
-            </div>
-          </div>
+  <label>Role</label>
+  <div className="select-wrapper">
+    <IonIcon icon={personOutline} />
+    <select
+      name="role"
+      value={formData.role} 
+      onChange={handleChange}
+      required
+    >
+      <option value="">Select Role</option> 
+      <option value="student">Student</option>
+      <option value="teacher">Teacher</option>
+      <option value="examiner">Examiner</option>
+    </select>
+  </div>
+</div>
 
           <button type="submit" className="login-btn">Submit</button>
         </form>

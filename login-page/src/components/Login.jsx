@@ -7,14 +7,12 @@ import "../styles/Login.css";
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [message, setMessage] = useState(""); // Error/Success messages
+  const [message, setMessage] = useState("");
 
-  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle login submit
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -27,13 +25,28 @@ const Login = () => {
 
       const data = await response.json();
 
-      if (response.status === 200) {
+      if (response.status === 200 && data.user) {
+        const user = data.user;
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("userId", user._id);
+        localStorage.setItem("email", user.email);
+        localStorage.setItem("name", user.name);
+        localStorage.setItem("role", user.role);
+      
         setMessage("Login Successful! Redirecting...");
-        setTimeout(() => navigate("/student"), 1500); // Redirect on success
-      } else {
-        setMessage(data.message);
+      
+        setTimeout(() => {
+          if (user.role === "student") navigate("/student");
+          else if (user.role === "teacher") navigate("/teacher");
+          else if (user.role === "examiner") navigate("/examiner");
+          else setMessage("Invalid role!");
+        }, 1500);
+      }
+      else {
+        setMessage(data.message || "Login failed");
       }
     } catch (error) {
+      console.error(error);
       setMessage("Error logging in.");
     }
   };
@@ -42,7 +55,6 @@ const Login = () => {
     <div className="container">
       <div className="login-box">
         <h2 className="title">Drone</h2>
-
         <form onSubmit={handleLogin}>
           <div className="input-group">
             <label>Email</label>
@@ -51,7 +63,7 @@ const Login = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="Enter your registered email"
+                placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleChange}
                 required
